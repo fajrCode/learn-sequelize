@@ -22,4 +22,11 @@ const sequelize = new Sequelize(dbName, dbUser, dbPW, {
 //   },
 });
 
+sequelize
+  .authenticate()
+  .then(console.log("DB Connected...."))
+  .catch((error) => {
+    console.log("DB is not Connected: ", error);
+  });
+
 export default sequelize;
