@@ -16,17 +16,17 @@ const sequelize = new Sequelize(dbName, dbUser, dbPW, {
     process.env.NODE_ENV == "development"
       ? (...msg) => console.log(msg)
       : false,
-//   dialectOptions: {
-//     requestTimeout: 30000,
-//     encrypt: true,
-//   },
+  //   dialectOptions: {
+  //     requestTimeout: 30000,
+  //     encrypt: true,
+  //   },
 });
 
-sequelize
-  .authenticate()
-  .then(console.log("DB Connected...."))
-  .catch((error) => {
-    console.log("DB is not Connected: ", error);
-  });
+try {
+  await sequelize.authenticate();
+  console.log("DB Connected....");
+} catch (error) {
+  console.log("DB is not Connected ");
+}
 
 export default sequelize;

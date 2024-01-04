@@ -1,6 +1,5 @@
 // import sequelize from "./utils/db.js";
 import express from "express";
-import "dotenv/config";
 import User from "./models/userModel.js";
 
 const app = express();
@@ -9,13 +8,13 @@ const port = 5000;
 app.get("/add", (req, res) => {
   try {
     User.create({
-      name_user: "admin",
+      namaUser: "admin",
       email: "admin@gmail.com",
     }).then((data) => {
       res.send(data)
     });
   } catch (error) {
-    console.log(error);
+    console.log("db error");
   }
 });
 
