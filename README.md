@@ -1,2 +1,2 @@
 # learn-sequelize
-learn orgm sequelize
+learn orm sequelize
